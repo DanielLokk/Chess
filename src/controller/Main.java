@@ -1,5 +1,8 @@
 package controller;
 
+import model.Board;
+import model.Square;
+
 import javax.swing.*;
 
 public class Main {
@@ -11,6 +14,7 @@ public class Main {
             public void run() {
 
                 // start program
+                Board board = new Board();
 
             }
         });

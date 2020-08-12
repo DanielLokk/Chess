@@ -12,6 +12,23 @@ public class Board {
         Bpieces = new LinkedList<>();
         Wpieces = new LinkedList<>();
         this.board = new Square[8][8];
+
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                int xMod = i % 2;
+                int yMod = j % 2;
+
+                if ((xMod == 0 && yMod == 0) || (xMod == 1 && yMod == 1)) {
+                    board[i][j] = new Square(1, i, j);
+                    //this.add(board[i][j]);
+                } else {
+                    board[i][j] = new Square(0, i, j);
+                    //this.add(board[i][j]);
+                }
+            }
+        }
+
+        initializePieces();
     }
 
     private void initializePieces() {
@@ -47,8 +64,12 @@ public class Board {
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 8; j++) {
                 Bpieces.add(board[i][j].getPieceSquare());
-                Wpieces.add(board[7-i][j].getPieceSquare());
+                Wpieces.add(board[7 - i][j].getPieceSquare());
             }
         }
+    }
+
+    public Square getSquare(int i, int j) {
+        return board[i][j];
     }
 }
