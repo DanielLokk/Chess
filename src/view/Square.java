@@ -1,6 +1,9 @@
 package model;
 
-public class Square {
+import javax.swing.*;
+import java.awt.*;
+
+public class Square extends JComponent {
     private Piece piece;
     private boolean isPiece = false;
     private int color;
@@ -22,5 +25,18 @@ public class Square {
 
     public Piece getPieceSquare() {
         return piece;
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        if (this.color == 1) {
+            g.setColor(new Color(221, 192, 127));
+        } else {
+            g.setColor(new Color(101,67,33));
+        }
+
+        g.fillRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
     }
 }
